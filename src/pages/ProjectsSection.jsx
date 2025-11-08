@@ -11,22 +11,6 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Nike Shoes Website",
-      description: "A responsive static website showcasing Nike shoes products with modern UI design.",
-      image: nike_shoes,
-      technologies: ["HTML", "CSS", "JavaScript"],
-      liveUrl: "https://houmenghor.github.io/Nike-Shoes/",
-      githubUrl: "https://github.com/houmenghor/Nike-Shoes",
-    },
-    {
-      title: "Portfolio Website",
-      description: "A personal portfolio website with dark/light theme support and responsive design.",
-      image: portfolio,
-      technologies: ["React", "Tailwind CSS", "JavaScript"],
-      liveUrl: "https://menghor-hou-portfolio.vercel.app/",
-      githubUrl: "https://github.com/houmenghor/menghor-hou-portfolio",
-    },
-    {
       title: "UX/UI Design Project",
       description: "Interactive prototype design for a modern application interface created in Figma.",
       image: uxui,

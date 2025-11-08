@@ -35,7 +35,7 @@ const AboutSection = () => {
                   potential as a Full Stack Developer.
                 </p>
                 <p>
-                  I am currently a third year IT student at Royal University of Phnom Penh. I looked at a lot of
+                  I am currently a fourth year IT student at Royal University of Phnom Penh. I looked at a lot of
                   different artifacts and they were all really complicated.
                 </p>
               </div>

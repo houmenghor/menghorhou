@@ -73,7 +73,7 @@ const Header = () => {
         <div className='flex h-[40px] items-center justify-between'>
           {/* Logo */}
           <NavLink to='/' className='flex items-center'>
-            <span className='text-[24px] text-primary font-bold'>Menghor Hou</span>
+            <span className='text-[24px] text-primary font-bold'>Hou Menghor</span>
           </NavLink>
 
           {/* Navigation */}

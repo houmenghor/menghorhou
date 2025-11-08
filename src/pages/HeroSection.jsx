@@ -31,9 +31,9 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 dark:text-white">
-              Hi, I'm <span className="text-primary">Menghor Hou</span>
+              Hi, I'm <span className="text-primary">Hou Menghor</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 dark:text-white">Web Developer</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6 dark:text-white">Web Backend</h2>
             <p className="text-lg mb-8 text-muted-foreground">
               A passionate web developer focused on creating clean, responsive websites with great user experiences.
               Currently pursuing a degree in Information Technology.
