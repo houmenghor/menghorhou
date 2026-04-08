@@ -1,11 +1,48 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, Github, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, Github, MapPin, Send, Linkedin, CheckCircle, XCircle, Loader } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState, useEffect } from 'react'
-import { faTelegram, } from '@fortawesome/free-brands-svg-icons';
+import React, { useState } from 'react'
+import { faTelegram } from '@fortawesome/free-brands-svg-icons';
+
+const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID
 
 const ContactSection = () => {
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState(null)
+  const [loading, setLoading] = useState(false)
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!form.name || !form.message) return
+    setLoading(true)
+    setStatus(null)
+
+    const text = `📬 New message from portfolio\n\n👤 Name: ${form.name}\n📧 Email: ${form.email || 'N/A'}\n💬 Message: ${form.message}`
+
+    try {
+      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text }),
+      })
+      const data = await res.json()
+      if (data.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const contactInfo = [
     {
@@ -33,9 +70,15 @@ const ContactSection = () => {
       href: "https://github.com/houmenghor",
     },
     {
+      icon: <Linkedin className="h-6 w-6" />,
+      label: "LinkedIn",
+      value: "Menghor Hou",
+      href: "https://www.linkedin.com/in/menghor-hou-6a978733a/",
+    },
+    {
       icon: <MapPin className="h-6 w-6" />,
       label: "Address",
-      value: "Sangkat Tuek Thla, Khan Sen Sok, Phnom Penh, Cambodia",
+      value: "Borey 100 Knong Village, Sangkat Tuek Thla, Khan Sen Sok, Phnom Penh",
       href: "#",
     },
   ]
@@ -62,47 +105,65 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* Contact Form (Card replaced with div) */}
             <div className="rounded-xl p-6 border dark:border-darkMode">
               <h3 className="text-xl font-semibold mb-6">Get In Touch</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="name" className="block mb-2">
-                    Name
-                  </label>
+                  <label htmlFor="name" className="block mb-2">Name</label>
                   <input
                     type="text"
                     id="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
                     className="w-full p-3 rounded-md border dark:border-darkMode dark:bg-secondary"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block mb-2">
-                    Email
-                  </label>
+                  <label htmlFor="email" className="block mb-2">Email</label>
                   <input
                     type="email"
                     id="email"
+                    value={form.email}
+                    onChange={handleChange}
                     className="w-full p-3 rounded-md border dark:border-darkMode dark:bg-secondary"
                     placeholder="Your Email"
                   />
                 </div>
                 <div>
-                   
+                  <label htmlFor="message" className="block mb-2">Message</label>
                   <textarea
                     id="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    required
                     className="w-full p-3 rounded-md border dark:border-darkMode dark:bg-secondary"
                     placeholder="Your Message"
                     rows={4}
                   />
                 </div>
-                {/* Replaced custom button with standard button */}
+
+                {status === 'success' && (
+                  <div className="flex items-center gap-2 text-green-500 text-sm">
+                    <CheckCircle className="h-4 w-4" /> Message sent successfully!
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="flex items-center gap-2 text-red-500 text-sm">
+                    <XCircle className="h-4 w-4" /> Failed to send. Please try again.
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full justify-center flex bg-primary text-white dark:text-black p-3 rounded-md transition-colors"
+                  disabled={loading}
+                  className="w-full justify-center flex bg-primary text-white dark:text-black p-3 rounded-md transition-colors hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <Send className="mr-3 h-4 w-4 mt-1" /> Send Message
+                  {loading
+                    ? <><Loader className="mr-2 h-4 w-4 mt-0.5 animate-spin" /> Sending...</>
+                    : <><Send className="mr-2 h-4 w-4 mt-0.5" /> Send Message</>
+                  }
                 </button>
               </form>
             </div>
@@ -114,7 +175,6 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            {/* Contact Information (Card replaced with div) */}
             <div className=" rounded-xl p-6 border dark:border-darkMode">
               <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
               <div className="space-y-6">

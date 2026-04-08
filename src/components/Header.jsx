@@ -52,10 +52,23 @@ const Header = () => {
     if (isHomePage) {
       const section = document.getElementById(sectionId);
       if (section) {
-        window.scrollTo({
-          top: section.offsetTop - 80,
-          behavior: "smooth",
-        });
+        const target = section.offsetTop - 80;
+        const start = window.scrollY;
+        const distance = target - start;
+        const duration = 700;
+        let startTime = null;
+
+        const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+        const step = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          window.scrollTo(0, start + distance * ease(progress));
+          if (progress < 1) requestAnimationFrame(step);
+        };
+
+        requestAnimationFrame(step);
       }
     } else {
       window.location.href = `/#${sectionId}`;

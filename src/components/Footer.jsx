@@ -18,7 +18,7 @@ const Footer = () => {
               {theme === "dark" ? "Dark Mode" : "Light Mode"}
             </span>
           </div>
-          <p className='text-muted-foreground'>&copy; {currentYear} Menghor Hou. All rights reserved.</p>
+          <p className='text-muted-foreground'>&copy; {currentYear} Hou Menghor. All rights reserved.</p>
         </div>
       </div>
     </footer>

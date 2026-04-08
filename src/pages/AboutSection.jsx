@@ -30,13 +30,10 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-4">Personal Profile</h3>
                 <p className="mb-4">
-                  I'm Hou Menghor. I was born in Prey Veng province in 2005. My goal is to keep getting better. I'll use
-                  what I learn to create something practical for our everyday lives. Specifically, I wish to fulfill my
-                  potential as a Full Stack Developer.
-                </p>
-                <p>
-                  I am currently a fourth year IT student at Royal University of Phnom Penh. I looked at a lot of
-                  different artifacts and they were all really complicated.
+                  A Computer Science graduate from the Royal University of Phnom Penh (RUPP) with a passion for web development. 
+                  Experienced with HTML, CSS, Bootstrap, JavaScript, PHP, Laravel, VueJS, ReactJS, PostgreSQL, and Git. 
+                  Demonstrated ability to build responsive and user-friendly websites through hands-on projects. 
+                  My dream is to become a professional web developer, and I am fully committed to continuous learning and hard work to achieve this goal.
                 </p>
               </div>
             </div>
@@ -71,7 +68,7 @@ const AboutSection = () => {
                   </li>
                   <li className="flex items-center">
                     <MapPin className="h-5 w-5 mr-3 text-primary" />
-                    <span><strong>Address:</strong> Sangkat Tuek Thla, Khan Sen Sok, Phnom Penh</span>
+                    <span><strong>Address:</strong> Borey 100 Knong Village, Sangkat Tuek Thla, Khan Sen Sok, Phnom Penh</span>
                   </li>
                 </ul>
               </div>

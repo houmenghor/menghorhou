@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .section-title {
     @apply text-3xl font-bold mb-6 relative inline-block;
   }

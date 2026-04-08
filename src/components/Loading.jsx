@@ -1,5 +1,6 @@
 // src/components/Loading.jsx
 import { motion } from "framer-motion"
+import profile from '../assets/images/profile.jpg'
 
 export function Loading() {
   return (
@@ -13,7 +14,7 @@ export function Loading() {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2025-03-17_00-22-28.jpg-mQVRCyO38GBBohWFUn61vt1DgXhLgB.jpeg"
+              src={profile}
               alt="Menghor Hou"
               className="object-cover w-full h-full"
             />

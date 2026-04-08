@@ -1,15 +1,20 @@
-import React,{useState, useEffect} from "react"
 import { Github, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
-import portfolio from '../assets/images/portfolio.png'
-import nike_shoes from '../assets/images/shoes.png'
 import uxui from '../assets/images/uxui.png'
 
 const ProjectsSection = () => {
 
-  
+
 
   const projects = [
+    {
+      title: "Book Store API",
+      description: "A RESTful API built with Laravel 12 for a full-featured bookstore system. Covers user authentication with OTP email verification, product & category management, order processing with stock validation, and QR-based payment integration via Bakong KHQR.",
+      image: null,
+      technologies: ["Laravel", "PHP", "PostgreSQL", "RESTful API", "Bakong KHQR"],
+      liveUrl: "https://github.com/codehub-devkh/book.store.api",
+      githubUrl: "https://github.com/codehub-devkh/book.store.api"
+    },
     {
       title: "UX/UI Design Project",
       description: "Interactive prototype design for a modern application interface created in Figma.",
@@ -30,7 +35,7 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Projects
+          Projects Experience
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
