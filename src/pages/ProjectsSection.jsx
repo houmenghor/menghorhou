@@ -1,7 +1,7 @@
 import { Github, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
-import shoes from '../assets/images/shoes.png'
+import shoes from '../assets/images/shoes.webp'
 
 const ProjectsSection = () => {
   const sliderRef = useRef(null)
