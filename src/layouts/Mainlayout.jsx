@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useLoading } from '../components/LoadingProvider';
 import HeroSection from '../pages/HeroSection';
 import AboutSection from '../pages/AboutSection';
 import SkillsSection from '../pages/SkillsSection';
@@ -10,24 +9,19 @@ import ProjectsSection from '../pages/ProjectsSection';
 import ContactSection from '../pages/ContactSection';
 
 const Mainlayout = () => {
-  const { isLoading } = useLoading(); // 🆕 get loading state
-
   return (
-    <main>
+    <main className="app-shell">
       <Header />
 
-      {/* Show rest of page only if not loading */}
-      {!isLoading && (
-        <>
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <EducationSection />
-          <ProjectsSection />
-          <ContactSection />
-          <Footer />
-        </>
-      )}
+      <div className="app-content">
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <EducationSection />
+        <ProjectsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </main>
   );
 };

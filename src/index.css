@@ -7,7 +7,7 @@ html {
 }
 
 .section-title {
-    @apply text-3xl font-bold mb-6 relative inline-block;
+  @apply text-4xl md:text-5xl font-bold mb-10 relative inline-block;
   }
   
   .section-title::after {

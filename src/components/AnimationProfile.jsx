@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profile from '../assets/images/profile.jpg'
+import profile from '../assets/images/profile.webp'
 
 const AnimatedProfile = ({
   size = "md",
@@ -7,9 +7,9 @@ const AnimatedProfile = ({
   src = profile,
 }) => {
   const sizeClasses = {
-    sm: "w-24 h-24",
+    sm: "w-28 h-28",
     md: "w-40 h-40",
-    lg: "w-64 h-64 md:w-80 md:h-80",
+    lg: "w-72 h-72 md:w-[26rem] md:h-[26rem]",
   };
 
   return (

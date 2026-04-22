@@ -2,6 +2,24 @@
 /* Apply globally */
 body {
     font-family: "Inter Fallback", sans-serif;
+    overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+    .app-shell {
+        min-height: 100vh;
+        background: #020817;
+    }
+
+    .app-content {
+        min-height: 100vh;
+        margin-left: calc(18rem + 1.5rem);
+        transition: margin-left 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body.sidebar-collapsed .app-content {
+        margin-left: calc(6rem + 1.25rem);
+    }
 }
 
 /* @theme{

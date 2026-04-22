@@ -86,59 +86,59 @@ const ContactSection = () => {
 
 
   return (
-    <section id="contact" className="py-20 px-4 dark:bg-secondary dark:text-white transition-all duration-300">
-      <div className="container mx-auto">
+    <section id="contact" className="py-24 md:py-28 px-4 md:pl-8 md:pr-8 dark:bg-secondary dark:text-white transition-all duration-300">
+      <div className="container max-w-[1400px] mx-auto">
         <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.5 }}
         >
           Contact Me
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="rounded-xl p-6 border dark:border-darkMode">
-              <h3 className="text-xl font-semibold mb-6">Get In Touch</h3>
+            <div className="rounded-xl p-8 border dark:border-darkMode">
+              <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="name" className="block mb-2">Name</label>
+                  <label htmlFor="name" className="block mb-2 text-base">Name</label>
                   <input
                     type="text"
                     id="name"
                     value={form.name}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 rounded-md border dark:border-darkMode dark:bg-secondary"
+                    className="w-full p-3.5 rounded-md border dark:border-darkMode dark:bg-secondary"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block mb-2">Email</label>
+                  <label htmlFor="email" className="block mb-2 text-base">Email</label>
                   <input
                     type="email"
                     id="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-md border dark:border-darkMode dark:bg-secondary"
+                    className="w-full p-3.5 rounded-md border dark:border-darkMode dark:bg-secondary"
                     placeholder="Your Email"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block mb-2">Message</label>
+                  <label htmlFor="message" className="block mb-2 text-base">Message</label>
                   <textarea
                     id="message"
                     value={form.message}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 rounded-md border dark:border-darkMode dark:bg-secondary"
+                    className="w-full p-3.5 rounded-md border dark:border-darkMode dark:bg-secondary"
                     placeholder="Your Message"
                     rows={4}
                   />
@@ -158,7 +158,7 @@ const ContactSection = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full justify-center flex bg-primary text-white dark:text-black p-3 rounded-md transition-colors hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full justify-center flex bg-primary text-white dark:text-black p-3.5 rounded-md transition-colors hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading
                     ? <><Loader className="mr-2 h-4 w-4 mt-0.5 animate-spin" /> Sending...</>
@@ -172,11 +172,11 @@ const ContactSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <div className=" rounded-xl p-6 border dark:border-darkMode">
-              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+            <div className=" rounded-xl p-8 border dark:border-darkMode">
+              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-start">
@@ -184,10 +184,10 @@ const ContactSection = () => {
                       <span className="text-primary">{item.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-medium">{item.label}</h4>
+                      <h4 className="font-medium text-lg">{item.label}</h4>
                       <a
                         href={item.href}
-                        className="text-muted-foreground hover:text-primary transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors text-base"
                         target={item.href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                       >

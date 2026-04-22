@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Download, FileText, Github, ArrowDown } from 'lucide-react';
-import AnimatedProfile from '../components/AnimationProfile';
+import { FileText, Github, ArrowDown } from 'lucide-react';
+import profile from '../assets/images/profile.webp';
 
 const HeroSection = () => {
 
@@ -11,22 +11,7 @@ const HeroSection = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       const target = section.offsetTop - 80;
-      const start = window.scrollY;
-      const distance = target - start;
-      const duration = 700;
-      let startTime = null;
-
-      const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-
-      const step = (timestamp) => {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        window.scrollTo(0, start + distance * ease(progress));
-        if (progress < 1) requestAnimationFrame(step);
-      };
-
-      requestAnimationFrame(step);
+      window.scrollTo({ top: target, behavior: "smooth" });
     }
   };
 
@@ -34,20 +19,20 @@ const HeroSection = () => {
 
   // Once loading is complete, show HeroSection
   return (
-    <section id="home" className="min-h-screen flex items-center pb-[120px] px-4 dark:bg-secondary transition-all duration-300">
-      <div className="container mx-auto">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+    <section id="home" className="min-h-[calc(100vh-71px)] flex items-center py-16 md:py-24 px-4 md:pl-8 md:pr-8 dark:bg-secondary transition-all duration-300">
+      <div className="container max-w-[1400px] mx-auto">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-14 md:gap-16">
           <motion.div
             className="md:w-1/2"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 dark:text-white">
-              Hi everyone, I'm <span className="text-primary">Hou Menghor</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-5 dark:text-white leading-tight">
+              Hi ,I'm <span className="text-primary">Hou Menghor</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 dark:text-white">Web Developer</h2>
-            <p className="text-lg mb-8 text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-7 dark:text-white">Web Developer</h2>
+            <p className="text-xl mb-9 text-muted-foreground max-w-2xl leading-relaxed">
               A passionate web developer focused on creating clean, responsive websites with great user experiences. A recent Computer Science graduate eager to build impactful digital solutions.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -59,12 +44,12 @@ const HeroSection = () => {
               </button> */}
               <button
                 onClick={() => scrollToSection('projects')}
-                className="flex items-center gap-2 px-4 py-2 dark:border-darkMode dark:text-white dark:hover:bg-darkMode border border-lightMode/30 text-secondary rounded-md hover:bg-lightMode/5 transition-colors"
+                className="flex items-center gap-2 px-5 py-3 text-base dark:border-darkMode dark:text-white dark:hover:bg-darkMode border border-lightMode/30 text-secondary rounded-md hover:bg-lightMode/5 transition-colors"
               >
                 <FileText className="mr-2 h-4 w-4" /> View My Projects
               </button>
               <button
-                className="flex items-center gap-2 px-4 py-2 dark:border-darkMode dark:text-white dark:hover:bg-darkMode border border-lightMode/30 text-secondary rounded-md hover:bg-lightMode/5 transition-colors"
+                className="flex items-center gap-2 px-5 py-3 text-base dark:border-darkMode dark:text-white dark:hover:bg-darkMode border border-lightMode/30 text-secondary rounded-md hover:bg-lightMode/5 transition-colors"
               >
                 <Link to="https://github.com/houmenghor" target="_blank" className="flex items-center gap-2">
                   <Github className="mr-2 h-4 w-4" /> GitHub
@@ -78,10 +63,14 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <AnimatedProfile size="lg" />
+            <div className="relative mt-5">
+              <div className="w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full border-4 border-primary overflow-hidden">
+                <img src={profile} alt="Menghor Hou" className="object-cover w-full h-full" />
+              </div>
+            </div>
           </motion.div>
         </div>
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-12 md:mt-16">
           <button
             onClick={() => scrollToSection("about")}
             className="animate-bounce text-primary"
