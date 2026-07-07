@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FileText, Github, ArrowDown } from 'lucide-react';
+import { FileText, Github, ArrowDown, Download } from 'lucide-react';
 import profile from '../assets/images/profile.webp';
 
 const HeroSection = () => {
@@ -15,6 +15,14 @@ const HeroSection = () => {
     }
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/HOU MENGHOR.pdf';
+    link.download = 'HOU MENGHOR.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 
   // Once loading is complete, show HeroSection
@@ -36,12 +44,12 @@ const HeroSection = () => {
               A passionate web developer focused on creating clean, responsive websites with great user experiences. A recent Computer Science graduate eager to build impactful digital solutions.
             </p>
             <div className="flex flex-wrap gap-4">
-              {/* <button
+              <button
                 onClick={handleDownloadCV}
                 className="flex items-center gap-2 px-4 py-2 bg-primary text-white dark:text-secondary rounded-md hover:bg-primary-dark transition-colors"
               >
                 <Download className="mr-2 h-4 w-4" /> Download CV
-              </button> */}
+              </button>
               <button
                 onClick={() => scrollToSection('projects')}
                 className="flex items-center gap-2 px-5 py-3 text-base dark:border-darkMode dark:text-white dark:hover:bg-darkMode border border-lightMode/30 text-secondary rounded-md hover:bg-lightMode/5 transition-colors"
