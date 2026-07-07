@@ -29,7 +29,7 @@ const AboutSection = () => {
                 <h3 className="text-2xl font-semibold mb-4">Personal Profile</h3>
                 <p className="text-lg leading-relaxed mb-4">
                   A Computer Science graduate from the Royal University of Phnom Penh (RUPP) with a passion for web development. 
-                  Experienced with HTML, CSS, Bootstrap, JavaScript, PHP, Laravel, VueJS, ReactJS, PostgreSQL, and Git. 
+                  Experienced with HTML, CSS, Bootstrap, JavaScript, Tailwindcss, PHP, Laravel, NuxtJs, VueJs, ReactJs, PostgreSQL, MySQL, Docker, and Git. 
                   Demonstrated ability to build responsive and user-friendly websites through hands-on projects. 
                   My dream is to become a professional web developer, and I am fully committed to continuous learning and hard work to achieve this goal.
                 </p>

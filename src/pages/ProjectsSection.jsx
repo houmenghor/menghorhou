@@ -2,6 +2,7 @@ import { Github, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import shoes from '../assets/images/shoes.webp'
+import toslouk from '../assets/images/tos-louk.webp'
 
 const ProjectsSection = () => {
   const sliderRef = useRef(null)
@@ -9,21 +10,12 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Book Store API",
-      description: "A RESTful API built with Laravel 12 for a full-featured bookstore system. Covers user authentication with OTP email verification, product & category management, order processing with stock validation, and QR-based payment integration via Bakong KHQR.",
-      image: "https://book-store-api-images.s3.ap-southeast-1.amazonaws.com/profiles/book-store-logo.png",
-      technologies: ["Laravel", "PHP", "PostgreSQL", "RESTful API", "Bakong KHQR"],
+      title: "Tos Louk E-Commerce System",
+      description: "A full-stack e-commerce system built with NuxtJs SSR and Laravel RESTful API. Features JWT authentication with Laravel Passport & OTP verification, strict Role-Based Access Control (RBAC) and Pinia state management, and a complete e-commerce core (Products, Carts, Wishlists, Orders, Discounts). Integrates secure checkout via Bakong KHQR, real-time WebSocket notifications with Laravel Reverb & Echo, dynamic Chart.js analytics, PDF/Excel data export reporting (ExcelJS & PDFmake), Cloudinary file storage, Google OAuth for social login, and Telegram/Email automated system alerting.",
+      image: toslouk,
+      technologies: ["NuxtJs", "Laravel", "PostgreSQL", "RESTful API", "Bakong KHQR", "Laravel Reverb", "Cloudinary", "Google OAuth"],
       liveUrl: "https://bookstoreapi.sainnovationresearchlab.com/",
       githubUrl: "https://github.com/codehub-devkh/book.store.api",
-      status: "in-progress",
-    },
-    {
-      title: "SAIRL Blog API",
-      description: "A RESTful API built with Laravel 12 for the Software and Application Innovation Research Lab (SAIRL) blog platform at RUPP. Features multi-method authentication (Passport OAuth2, email OTP, social login), role-based access control, blog post management with categories and tags, research team management with author request workflows, announcement broadcasting, and AWS S3 file storage.",
-      image: "https://sairl-demo.s3.ap-southeast-1.amazonaws.com/profiles/sairl.jpg",
-      technologies: ["Laravel", "PHP", "PostgreSQL", "RESTful API", "Laravel Passport", "AWS S3"],
-      liveUrl: null,
-      githubUrl: "https://github.com/codehub-devkh/sairl.api",
       status: "in-progress",
     },
     {

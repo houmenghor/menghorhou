@@ -3,9 +3,9 @@ import { motion, useInView } from 'framer-motion'
 import { IconCloud } from '../components/ui/IconCloud'
 
 const slugs = [
-  "html5", "css", "bootstrap", "javascript", "php",
-  "laravel", "vuedotjs", "react", "git", "github",
-  "postgresql", "figma",
+  "html5", "css", "bootstrap", "javascript", "tailwindcss", "php",
+  "laravel", "nuxtdotjs", "vuedotjs", "react", "git", "github",
+  "postgresql", "mysql", "figma", "docker", "cloudinary", "telegram", "google", "cloudflare",
 ]
 
 const images = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`)
@@ -18,29 +18,37 @@ const skillGroups = [
       { label: "CSS",        slug: "css" },
       { label: "Bootstrap",  slug: "bootstrap" },
       { label: "JavaScript", slug: "javascript" },
+      { label: "Tailwindcss", slug: "tailwindcss" },
       { label: "PHP",        slug: "php" },
       { label: "Laravel",    slug: "laravel" },
-      { label: "VueJS",      slug: "vuedotjs" },
-      { label: "ReactJS",    slug: "react" },
+      { label: "NuxtJs",     slug: "nuxtdotjs" },
+      { label: "VueJs",      slug: "vuedotjs" },
+      { label: "ReactJs",    slug: "react" },
     ],
   },
   {
     category: "Version Control",
     skills: [
       { label: "Git",    slug: "git" },
-      { label: "GitHub", slug: "github" },
+      { label: "Github", slug: "github" },
     ],
   },
   {
-    category: "API Integration",
+    category: "API & Integration",
     skills: [
       { label: "RESTful API", slug: null },
+      { label: "Bakong KHQR", slug: null },
+      { label: "Telegram Bot API", slug: "telegram" },
+      { label: "Google OAuth", slug: "google" },
+      { label: "Cloudflare Turnstile", slug: "cloudflare" },
+      { label: "Cloudinary", slug: "cloudinary" },
     ],
   },
   {
-    category: "Database",
+    category: "Database Management",
     skills: [
       { label: "PostgreSQL", slug: "postgresql" },
+      { label: "MySQL",      slug: "mysql" },
     ],
   },
   {
@@ -49,25 +57,41 @@ const skillGroups = [
       { label: "Figma", slug: "figma" },
     ],
   },
+  {
+    category: "Deployment",
+    skills: [
+      { label: "Docker", slug: "docker" },
+    ],
+  },
 ]
 
 const skillPercents = {
   HTML: 85,
   CSS: 80,
   Bootstrap: 75,
-  JavaScript: 70,
-  jQuery: 65,
-  PHP: 60,
-  "UX/UI Designer": 50,
-  Tailwindcss: 50,
-  Laravel: 50,
-  ReactJS: 50,
-  VueJS: 55,
-  Git: 75,
-  GitHub: 72,
-  "RESTful API": 80,
+  JavaScript: 75,
+  Tailwindcss: 80,
+  PHP: 75,
+  Laravel: 85,
+  NuxtJs: 80,
+  VueJs: 75,
+  ReactJs: 65,
+  Git: 80,
+  Github: 80,
+  "RESTful API": 85,
+  "Bakong KHQR": 80,
+  "Telegram Bot API": 80,
+  "Google OAuth": 75,
+  "Cloudflare Turnstile": 75,
+  Cloudinary: 80,
   PostgreSQL: 80,
+  MySQL: 75,
   Figma: 50,
+  Docker: 65,
+  "UX/UI Designer": 50,
+  ReactJS: 65,
+  VueJS: 75,
+  GitHub: 80,
 }
 
 const CategoryBarItem = ({ group, delay = 0 }) => {
