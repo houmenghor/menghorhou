@@ -15,16 +15,6 @@ const HeroSection = () => {
     }
   };
 
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/HOU MENGHOR.pdf';
-    link.download = 'HOU MENGHOR.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-
   // Once loading is complete, show HeroSection
   return (
     <section id="home" className="min-h-[calc(100vh-71px)] flex items-center py-16 md:py-24 px-4 md:pl-8 md:pr-8 dark:bg-secondary transition-all duration-300">
@@ -44,12 +34,15 @@ const HeroSection = () => {
               A passionate web developer focused on creating clean, responsive websites with great user experiences. A recent Computer Science graduate eager to build impactful digital solutions.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
-                onClick={handleDownloadCV}
+              <a
+                href="/HOU%20MENGHOR.pdf"
+                download="HOU_MENGHOR_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 bg-primary text-white dark:text-secondary rounded-md hover:bg-primary-dark transition-colors"
               >
                 <Download className="mr-2 h-4 w-4" /> Download CV
-              </button>
+              </a>
               <button
                 onClick={() => scrollToSection('projects')}
                 className="flex items-center gap-2 px-5 py-3 text-base dark:border-darkMode dark:text-white dark:hover:bg-darkMode border border-lightMode/30 text-secondary rounded-md hover:bg-lightMode/5 transition-colors"
